@@ -1,0 +1,33 @@
+/* =============================================
+   Estilos personalizados — Versão Tailwind
+   GAC116 - Programação Web — UFLA
+   Autor: Henrique César Silva Soares
+   ============================================= */
+
+/* Suaviza a rolagem da página */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Compensa a navbar fixa ao navegar por âncoras */
+section {
+  scroll-margin-top: 80px;
+}
+
+#header {
+  scroll-margin-top: 80px;
+}
+
+/* Foto de perfil circular com borda */
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 9999px;
+  border: 4px solid rgba(255, 255, 255, 0.7);
+  object-fit: cover;
+}
+
+/* Transição de tema suave */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

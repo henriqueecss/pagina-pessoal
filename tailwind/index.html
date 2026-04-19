@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Henrique César — Página Pessoal</title>
+
+  <!-- Font Awesome 6.5.0 via CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Configuração do Tailwind: dark mode por classe -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {}
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md shadow-md">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+
+      <!-- Marca / logo textual -->
+      <a href="#" class="text-xl font-bold text-indigo-600 dark:text-indigo-400">HC</a>
+
+      <!-- Botão hambúrguer (mobile) -->
+      <button
+        id="menuToggle"
+        class="lg:hidden text-gray-600 dark:text-gray-300 focus:outline-none"
+        aria-label="Abrir menu"
+      >
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+
+      <!-- Links desktop -->
+      <ul class="hidden lg:flex items-center gap-6">
+        <li><a href="#sobre" class="text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition">Sobre</a></li>
+        <li><a href="#habilidades" class="text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition">Habilidades</a></li>
+        <li><a href="#projetos" class="text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition">Projetos</a></li>
+        <li><a href="#interesses" class="text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition">Interesses</a></li>
+        <li><a href="#contato" class="text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition">Contato</a></li>
+        <!-- Botão de alternância de tema -->
+        <li>
+          <button
+            id="themeToggle"
+            class="px-3 py-1.5 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            title="Alternar tema claro/escuro"
+          >
+            <i class="fa-solid fa-moon" id="themeIcon"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Menu mobile (oculto por padrão) -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-4 pb-4">
+      <ul class="flex flex-col gap-3 pt-3">
+        <li><a href="#sobre" class="block text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400">Sobre</a></li>
+        <li><a href="#habilidades" class="block text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400">Habilidades</a></li>
+        <li><a href="#projetos" class="block text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400">Projetos</a></li>
+        <li><a href="#interesses" class="block text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400">Interesses</a></li>
+        <li><a href="#contato" class="block text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400">Contato</a></li>
+        <li>
+          <button
+            id="themeToggleMobile"
+            onclick="document.getElementById('themeToggle').click()"
+            class="px-3 py-1.5 rounded-lg border border-gray-300 dark:border-gray-600 text-sm text-gray-600 dark:text-gray-300"
+          >
+            <i class="fa-solid fa-moon me-1"></i> Alternar tema
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- ==================== FIM NAVBAR ==================== -->
+
+
+  <!-- ==================== HEADER / HERO ==================== -->
+  <header id="header" class="pt-28 pb-16 text-center bg-gradient-to-br from-indigo-600 to-slate-700 dark:from-gray-800 dark:to-gray-900 text-white">
+    <div class="max-w-4xl mx-auto px-4">
+
+      <!-- Foto de perfil -->
+      <img
+        src="assets/img/foto.svg"
+        alt="Avatar de Henrique César"
+        class="profile-img mx-auto mb-4 shadow-xl"
+      />
+
+      <!-- Nome e curso -->
+      <h1 class="text-4xl md:text-5xl font-bold mb-2">Henrique César Silva Soares</h1>
+      <p class="text-xl text-indigo-200 dark:text-gray-300 mb-1">
+        Bacharelado em Ciência da Computação
+      </p>
+      <p class="text-indigo-300 dark:text-gray-400 mb-6">
+        Universidade Federal de Lavras (UFLA) &bull; 7º Período &bull; Divinópolis/MG
+      </p>
+
+      <!-- Badges de área de interesse -->
+      <div class="flex flex-wrap justify-center gap-2 mb-6">
+        <span class="px-3 py-1 bg-indigo-500 bg-opacity-50 rounded-full text-sm font-medium">
+          Desenvolvimento de Software
+        </span>
+        <span class="px-3 py-1 bg-green-500 bg-opacity-50 rounded-full text-sm font-medium">
+          Ciência de Dados
+        </span>
+        <span class="px-3 py-1 bg-yellow-500 bg-opacity-50 text-yellow-100 rounded-full text-sm font-medium">
+          IA &amp; Machine Learning
+        </span>
+      </div>
+
+      <!-- Botões de ação -->
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        <a
+          href="https://github.com/henriqueecss"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 hover:bg-black rounded-lg font-semibold transition"
+        >
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a
+          href="https://www.linkedin.com/in/henrique-soares-28b482281/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition"
+        >
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a
+          href="#contato"
+          class="inline-flex items-center gap-2 px-5 py-2.5 border border-white border-opacity-60 hover:bg-white hover:bg-opacity-10 rounded-lg font-semibold transition"
+        >
+          <i class="fas fa-envelope"></i> Contato
+        </a>
+        <a
+          href="#projetos"
+          class="inline-flex items-center gap-2 px-5 py-2.5 border border-indigo-300 hover:bg-indigo-500 hover:bg-opacity-30 rounded-lg font-semibold transition"
+        >
+          <i class="fas fa-code"></i> Projetos
+        </a>
+      </div>
+
+      <!-- Cards informativos -->
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="bg-white bg-opacity-10 backdrop-blur rounded-xl px-6 py-3 text-left">
+          <p class="text-xs text-indigo-200 uppercase tracking-wider font-semibold">Curso</p>
+          <p class="font-semibold">Ciência da Computação — UFLA</p>
+        </div>
+        <div class="bg-white bg-opacity-10 backdrop-blur rounded-xl px-6 py-3 text-left">
+          <p class="text-xs text-indigo-200 uppercase tracking-wider font-semibold">Objetivo</p>
+          <p class="font-semibold">Dev de Software &bull; Dados &bull; IA</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ==================== FIM HEADER ==================== -->
+
+
+  <!-- ==================== SOBRE ==================== -->
+  <section id="sobre" class="py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10">
+        <i class="fas fa-user-circle mr-2 text-indigo-500"></i>Sobre Mim
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Biografia + informações rápidas -->
+        <div class="flex flex-col gap-6">
+          <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            Estudante de Ciência da Computação no 7º período da UFLA, altamente
+            motivado e dedicado, com sólida formação acadêmica e paixão por tecnologia
+            e inovação. Possuo habilidades em programação e desenvolvimento de software,
+            adquiridas através de projetos acadêmicos e experiências práticas.
+            Comprometido com a aprendizagem contínua e com a colaboração em equipe
+            para alcançar objetivos comuns.
+          </p>
+
+          <!-- Card de informações rápidas -->
+          <div class="bg-white dark:bg-gray-800 rounded-2xl shadow p-6">
+            <h3 class="font-bold text-lg mb-4 text-indigo-600 dark:text-indigo-400">
+              <i class="fas fa-info-circle mr-2"></i>Informações Rápidas
+            </h3>
+            <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+              <li class="flex items-center gap-3">
+                <i class="fas fa-map-marker-alt text-indigo-500 w-5"></i>
+                <span><strong>Cidade:</strong> Divinópolis/MG</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fas fa-language text-indigo-500 w-5"></i>
+                <span><strong>Idiomas:</strong> Português (Nativo), Inglês (Avançado)</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fas fa-laptop-code text-indigo-500 w-5"></i>
+                <span><strong>Área:</strong> Desenvolvimento de Software, Dados, IA/ML</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card de educação -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow p-6">
+          <h3 class="font-bold text-lg mb-4 text-indigo-600 dark:text-indigo-400">
+            <i class="fas fa-graduation-cap mr-2"></i>Educação
+          </h3>
+
+          <!-- UFLA -->
+          <div class="mb-4">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="px-2 py-0.5 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded text-xs font-semibold">
+                Atual
+              </span>
+              <h4 class="font-semibold text-gray-800 dark:text-gray-100">Bacharelado em Ciência da Computação</h4>
+            </div>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">
+              <i class="fas fa-university mr-1"></i>Universidade Federal de Lavras — UFLA
+            </p>
+            <p class="text-gray-400 text-xs mt-1">
+              <i class="fas fa-calendar-alt mr-1"></i>Jan 2023 – Presente &bull; 7º Período
+            </p>
+          </div>
+
+          <hr class="border-gray-200 dark:border-gray-700 my-4" />
+
+          <!-- Colégio Integral -->
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-gray-100 mb-1">Ensino Médio</h4>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">
+              <i class="fas fa-school mr-1"></i>Colégio Integral — Divinópolis/MG
+            </p>
+            <p class="text-gray-400 text-xs mt-1">
+              <i class="fas fa-calendar-alt mr-1"></i>Jan 2016 – Dez 2022
+            </p>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mt-2">
+              Ensino focado em formação cognitiva e habilidades extracurriculares,
+              com projetos de comunicação, criatividade e liderança.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ==================== FIM SOBRE ==================== -->
+
+
+  <!-- ==================== HABILIDADES ==================== -->
+  <section id="habilidades" class="py-16 bg-slate-100 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10">
+        <i class="fas fa-tools mr-2 text-indigo-500"></i>Habilidades
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Técnicas e ferramentas -->
+        <div class="bg-white dark:bg-gray-900 rounded-2xl shadow p-6">
+          <h3 class="font-bold text-lg mb-4 text-indigo-600 dark:text-indigo-400">
+            <i class="fas fa-code mr-2"></i>Técnicas
+          </h3>
+
+          <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-2">Áreas</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded text-xs font-medium">
+              Desenvolvimento de Software
+            </span>
+            <span class="px-2 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded text-xs font-medium">
+              Ciência de Dados
+            </span>
+            <span class="px-2 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded text-xs font-medium">
+              IA
+            </span>
+          </div>
+
+          <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-2">Linguagens</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded text-xs font-medium">C++</span>
+            <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded text-xs font-medium">JavaScript</span>
+            <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded text-xs font-medium">HTML &amp; CSS</span>
+            <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded text-xs font-medium">Java</span>
+            <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded text-xs font-medium">Python</span>
+          </div>
+
+          <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-2">Ferramentas</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded text-xs font-medium">Git/GitHub</span>
+            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded text-xs font-medium">Scrum</span>
+            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded text-xs font-medium">Docker</span>
+            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded text-xs font-medium">N8N</span>
+          </div>
+        </div>
+
+        <!-- Comportamentais -->
+        <div class="bg-white dark:bg-gray-900 rounded-2xl shadow p-6">
+          <h3 class="font-bold text-lg mb-4 text-green-600 dark:text-green-400">
+            <i class="fas fa-users mr-2"></i>Comportamentais
+          </h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+              <i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0"></i>
+              <span>Trabalho em equipe e boa comunicação</span>
+            </li>
+            <li class="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+              <i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0"></i>
+              <span>Responsabilidade e comprometimento com prazos</span>
+            </li>
+            <li class="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+              <i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0"></i>
+              <span>Liderança e gestão de pessoas</span>
+            </li>
+            <li class="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+              <i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0"></i>
+              <span>Criatividade e tomada de decisões</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Barras de progresso -->
+        <div class="bg-white dark:bg-gray-900 rounded-2xl shadow p-6">
+          <h3 class="font-bold text-lg mb-4 text-yellow-600 dark:text-yellow-400">
+            <i class="fas fa-chart-bar mr-2"></i>Familiaridade
+          </h3>
+
+          <!-- JavaScript / HTML / CSS -->
+          <div class="mb-5">
+            <div class="flex justify-between mb-1">
+              <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">JavaScript / HTML / CSS</span>
+              <span class="text-sm text-gray-400">75%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+              <div class="bg-yellow-400 h-2.5 rounded-full" style="width: 75%;"></div>
+            </div>
+          </div>
+
+          <!-- Java -->
+          <div class="mb-5">
+            <div class="flex justify-between mb-1">
+              <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Java</span>
+              <span class="text-sm text-gray-400">85%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+              <div class="bg-red-500 h-2.5 rounded-full" style="width: 85%;"></div>
+            </div>
+          </div>
+
+          <!-- C++ -->
+          <div class="mb-5">
+            <div class="flex justify-between mb-1">
+              <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">C++</span>
+              <span class="text-sm text-gray-400">70%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+              <div class="bg-sky-500 h-2.5 rounded-full" style="width: 70%;"></div>
+            </div>
+          </div>
+
+          <!-- Python -->
+          <div class="mb-5">
+            <div class="flex justify-between mb-1">
+              <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Python</span>
+              <span class="text-sm text-gray-400">65%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+              <div class="bg-green-500 h-2.5 rounded-full" style="width: 65%;"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==================== FIM HABILIDADES ==================== -->
+
+
+  <!-- ==================== PROJETOS ==================== -->
+  <section id="projetos" class="py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10">
+        <i class="fas fa-folder-open mr-2 text-indigo-500"></i>Projetos &amp; Experiências
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Card 1: CompJunior -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col border-t-4 border-blue-500 hover:-translate-y-1 hover:shadow-xl transition-all duration-200">
+          <div class="p-6 flex-1">
+            <h3 class="font-bold text-xl mb-1 text-gray-800 dark:text-gray-100">Trainee — CompJunior</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">
+              <i class="fas fa-building mr-1"></i>Empresa Júnior de TI — UFLA
+            </p>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              Capacitação e desenvolvimento de sites e sistemas web na empresa
+              júnior de tecnologia da UFLA.
+            </p>
+            <!-- Tecnologias -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2 py-0.5 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 rounded text-xs">HTML</span>
+              <span class="px-2 py-0.5 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 rounded text-xs">CSS</span>
+              <span class="px-2 py-0.5 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 rounded text-xs">JavaScript</span>
+              <span class="px-2 py-0.5 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 rounded text-xs">Java</span>
+              <span class="px-2 py-0.5 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 rounded text-xs">Git</span>
+            </div>
+            <!-- Destaques -->
+            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1 list-disc list-inside">
+              <li>Desenvolvimento de sites e sistemas web</li>
+              <li>Trabalho em equipe com entregas dentro dos prazos</li>
+              <li>Comunicação efetiva no ambiente de desenvolvimento</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 2: CIMVEST -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col border-t-4 border-green-500 hover:-translate-y-1 hover:shadow-xl transition-all duration-200">
+          <div class="p-6 flex-1">
+            <h3 class="font-bold text-xl mb-1 text-gray-800 dark:text-gray-100">Membro — CIMVEST</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">
+              <i class="fas fa-chart-line mr-1"></i>Núcleo de Estudos em Economia — UFLA
+            </p>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              Núcleo de estudos em economia e mercados financeiros da UFLA.
+            </p>
+            <!-- Tecnologias -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2 py-0.5 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 rounded text-xs">Educação financeira</span>
+              <span class="px-2 py-0.5 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 rounded text-xs">Liderança</span>
+              <span class="px-2 py-0.5 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 rounded text-xs">Inglês</span>
+            </div>
+            <!-- Destaques -->
+            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1 list-disc list-inside">
+              <li>Prelecionador das aulas de inglês do núcleo</li>
+              <li>Líder do projeto social de educação financeira em escolas</li>
+              <li>Participante da coordenadoria de gestão de pessoas</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 3: DocuChat AI -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col border-t-4 border-purple-500 hover:-translate-y-1 hover:shadow-xl transition-all duration-200">
+          <div class="p-6 flex-1">
+            <h3 class="font-bold text-xl mb-1 text-gray-800 dark:text-gray-100">DocuChat AI — RAG Avançado</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">
+              <i class="fas fa-robot mr-1"></i>Python · LangChain · Groq API
+            </p>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              Implementação completa de arquitetura RAG local com isolamento de
+              sessão por UUID, garbage collector customizado para File Locking
+              no Windows e busca híbrida BM25 + vetorial.
+            </p>
+            <!-- Tecnologias -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2 py-0.5 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 rounded text-xs">Python</span>
+              <span class="px-2 py-0.5 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 rounded text-xs">Streamlit</span>
+              <span class="px-2 py-0.5 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 rounded text-xs">LangChain</span>
+              <span class="px-2 py-0.5 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 rounded text-xs">ChromaDB</span>
+              <span class="px-2 py-0.5 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 rounded text-xs">BM25</span>
+              <span class="px-2 py-0.5 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 rounded text-xs">Llama 3.3</span>
+            </div>
+            <!-- Destaques -->
+            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1 list-disc list-inside">
+              <li>Isolamento de sessão com hash UUID por documento</li>
+              <li>Garbage Collector para File Locking no Windows</li>
+              <li>Busca híbrida BM25 + vetorial (EnsembleRetriever)</li>
+            </ul>
+          </div>
+          <!-- Botão -->
+          <div class="p-4 border-t border-gray-100 dark:border-gray-700">
+            <a
+              href="https://github.com/henriqueecss/chat-rag-ia"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center py-2 text-sm font-semibold rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            >
+              <i class="fab fa-github mr-1"></i>Ver no GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ==================== FIM PROJETOS ==================== -->
+
+
+  <!-- ==================== INTERESSES ==================== -->
+  <section id="interesses" class="py-16 bg-slate-100 dark:bg-gray-800">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10">
+        <i class="fas fa-heart mr-2 text-red-500"></i>Interesses
+      </h2>
+
+      <!-- Lista de interesses -->
+      <div class="bg-white dark:bg-gray-900 rounded-2xl shadow overflow-hidden mb-6">
+        <ul class="divide-y divide-gray-100 dark:divide-gray-700">
+          <li class="flex items-center gap-4 px-6 py-4 text-gray-700 dark:text-gray-300">
+            <i class="fas fa-globe text-indigo-500 w-5"></i>
+            Desenvolvimento WEB (HTML, CSS, JavaScript)
+          </li>
+          <li class="flex items-center gap-4 px-6 py-4 text-gray-700 dark:text-gray-300">
+            <i class="fas fa-robot text-green-500 w-5"></i>
+            Inteligência Artificial
+          </li>
+          <li class="flex items-center gap-4 px-6 py-4 text-gray-700 dark:text-gray-300">
+            <i class="fas fa-chart-line text-sky-500 w-5"></i>
+            Ciência de Dados
+          </li>
+          <li class="flex items-center gap-4 px-6 py-4 text-gray-700 dark:text-gray-300">
+            <i class="fas fa-coins text-yellow-500 w-5"></i>
+            Mercados financeiros (ações, títulos públicos, criptomoedas, fundos)
+          </li>
+          <li class="flex items-center gap-4 px-6 py-4 text-gray-700 dark:text-gray-300">
+            <i class="fas fa-book-open text-red-500 w-5"></i>
+            Educação financeira e disseminação de conhecimento
+          </li>
+          <li class="flex items-center gap-4 px-6 py-4 text-gray-700 dark:text-gray-300">
+            <i class="fas fa-tasks text-gray-500 w-5"></i>
+            Gestão de projetos com Scrum
+          </li>
+        </ul>
+      </div>
+
+      <!-- Badges de interesses -->
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="px-4 py-2 bg-indigo-500 text-white rounded-full text-sm font-semibold">Web Dev</span>
+        <span class="px-4 py-2 bg-green-500 text-white rounded-full text-sm font-semibold">IA</span>
+        <span class="px-4 py-2 bg-sky-500 text-white rounded-full text-sm font-semibold">Data Science</span>
+        <span class="px-4 py-2 bg-yellow-400 text-gray-800 rounded-full text-sm font-semibold">Finanças</span>
+        <span class="px-4 py-2 bg-red-500 text-white rounded-full text-sm font-semibold">Educação</span>
+        <span class="px-4 py-2 bg-gray-500 text-white rounded-full text-sm font-semibold">Scrum</span>
+      </div>
+    </div>
+  </section>
+  <!-- ==================== FIM INTERESSES ==================== -->
+
+
+  <!-- ==================== CONTATO ==================== -->
+  <section id="contato" class="py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10">
+        <i class="fas fa-paper-plane mr-2 text-indigo-500"></i>Contato
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <!-- E-mail -->
+        <a
+          href="mailto:henriquecssoares@gmail.com"
+          class="bg-white dark:bg-gray-800 rounded-2xl shadow p-6 text-center hover:shadow-md transition hover:-translate-y-1 block"
+        >
+          <i class="fas fa-envelope text-3xl text-red-500 mb-3"></i>
+          <h3 class="font-bold text-gray-800 dark:text-gray-100 mb-1">E-mail</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 break-all">henriquecssoares@gmail.com</p>
+        </a>
+
+        <!-- GitHub -->
+        <a
+          href="https://github.com/henriqueecss"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-white dark:bg-gray-800 rounded-2xl shadow p-6 text-center hover:shadow-md transition hover:-translate-y-1 block"
+        >
+          <i class="fab fa-github text-3xl text-gray-800 dark:text-gray-100 mb-3"></i>
+          <h3 class="font-bold text-gray-800 dark:text-gray-100 mb-1">GitHub</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400">@henriqueecss</p>
+        </a>
+
+        <!-- LinkedIn -->
+        <a
+          href="https://www.linkedin.com/in/henrique-soares-28b482281/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-white dark:bg-gray-800 rounded-2xl shadow p-6 text-center hover:shadow-md transition hover:-translate-y-1 block"
+        >
+          <i class="fab fa-linkedin text-3xl text-blue-600 mb-3"></i>
+          <h3 class="font-bold text-gray-800 dark:text-gray-100 mb-1">LinkedIn</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400">henrique-soares-28b482281</p>
+        </a>
+
+        <!-- Telefone -->
+        <a
+          href="tel:+5537998574951"
+          class="bg-white dark:bg-gray-800 rounded-2xl shadow p-6 text-center hover:shadow-md transition hover:-translate-y-1 block"
+        >
+          <i class="fas fa-phone text-3xl text-green-500 mb-3"></i>
+          <h3 class="font-bold text-gray-800 dark:text-gray-100 mb-1">Telefone</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400">(37) 99857-4951</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+  <!-- ==================== FIM CONTATO ==================== -->
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="py-6 text-center bg-gray-900 text-gray-300">
+    <p class="font-semibold mb-1">
+      &copy; <span id="year"></span> Henrique César Silva Soares
+    </p>
+    <p class="text-sm text-gray-500">
+      GAC116 — Programação Web &bull; Universidade Federal de Lavras (UFLA)
+    </p>
+  </footer>
+  <!-- ==================== FIM FOOTER ==================== -->
+
+
+  <!-- Script personalizado -->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

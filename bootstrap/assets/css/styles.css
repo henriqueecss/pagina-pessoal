@@ -1,0 +1,83 @@
+/* =============================================
+   Estilos personalizados — Versão Bootstrap
+   GAC116 - Programação Web — UFLA
+   Autor: Henrique César Silva Soares
+   ============================================= */
+
+/* Suaviza a rolagem da página */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── FOTO DE PERFIL ─── */
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 999px;
+  border: 4px solid rgba(255, 255, 255, 0.7);
+  object-fit: cover;
+}
+
+/* ─── ÂNCORAS COM OFFSET DA NAVBAR FIXA ─── */
+section,
+#header {
+  scroll-margin-top: 90px;
+}
+
+/* ─── NAVBAR COM GLASSMORPHISM ─── */
+#mainNavbar {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: background-color 0.3s ease;
+}
+
+[data-bs-theme="dark"] #mainNavbar {
+  background-color: rgba(33, 37, 41, 0.88) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ─── GRADIENTE SUTIL NO HERO ─── */
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.06) 0%, rgba(111, 66, 193, 0.06) 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-bs-theme="dark"] .hero-gradient {
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.12) 0%, rgba(111, 66, 193, 0.12) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ─── HOVER LIFT NOS CARDS ─── */
+.card {
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.11) !important;
+}
+
+/* ─── BORDAS SUPERIORES COLORIDAS NOS CARDS DE PROJETO ─── */
+.card-accent-blue {
+  border-top: 3px solid #0d6efd !important;
+  border-radius: 0.5rem !important;
+}
+
+.card-accent-green {
+  border-top: 3px solid #198754 !important;
+  border-radius: 0.5rem !important;
+}
+
+.card-accent-purple {
+  border-top: 3px solid #6f42c1 !important;
+  border-radius: 0.5rem !important;
+}
+
+/* ─── TRANSIÇÃO DE TEMA SUAVE ─── */
+body,
+.card,
+footer {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
