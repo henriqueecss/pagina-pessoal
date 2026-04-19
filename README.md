@@ -68,7 +68,7 @@ pagina-pessoal/
 2. Header/Hero com foto, nome, badges e botões de ação
 3. Sobre — biografia, informações rápidas e educação
 4. Habilidades — técnicas, comportamentais e barras de progresso
-5. Projetos — CompJunior, CIMVEST e Página Pessoal
+5. Projetos — CompJunior, CIMVEST e Chat-rag-ia
 6. Interesses — lista e badges
 7. Contato — e-mail, GitHub, LinkedIn e telefone
 8. Footer com ano dinâmico via JavaScript
