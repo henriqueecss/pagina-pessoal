@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-  <!-- Fundo circular azul Bootstrap -->
-  <circle cx="100" cy="100" r="100" fill="#0d6efd"/>
-  <!-- Cabeça -->
-  <circle cx="100" cy="72" r="32" fill="white"/>
-  <!-- Tronco / ombros -->
-  <path d="M 38 200 Q 38 138 100 128 Q 162 138 162 200 Z" fill="white"/>
-</svg>
